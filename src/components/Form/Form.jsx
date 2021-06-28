@@ -7,8 +7,6 @@ import Label from '../UI/Label/Label';
 
 const Form = styled.form`
   color: #000;
-  background-color: #fff;
-  box-shadow: 0 0 4px 2px #999;
   padding: 10px 60px;
   box-sizing: border-box;
 `;

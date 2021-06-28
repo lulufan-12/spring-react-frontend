@@ -9,6 +9,11 @@ const Anchor = styled.a`
   font-weight: bold;
   margin: 0 8px;
   text-shadow: 2px 2px 2px #666;
+  transition: all linear 0.3s;
+  &:hover {
+    color: #025211;
+    text-shadow: none;
+  }
 `;
 
 const linkStyle = {
