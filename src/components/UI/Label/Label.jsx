@@ -6,9 +6,10 @@ const Label = styled.label`
   font-size: 1.2rem;
 `;
 
-const label = (props) => <Label htmlFor={props.for}></Label>;
+const label = (props) => <Label htmlFor={props.for}>{props.children}</Label>;
 label.PropTypes = {
   for: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default label;
