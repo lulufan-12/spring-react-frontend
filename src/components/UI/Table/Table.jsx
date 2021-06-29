@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { loadUserProjects, loadAdminProjects } from '../../../store/actions';
+import {
+  loadUserWorkedHours,
+  loadAdminWorkedHours,
+} from '../../../store/actions';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
@@ -15,9 +18,9 @@ const ProjectsTable = styled.table`
 
 const Table = ({ dispatch, admin, children }) => {
   useEffect(() => {
-    dispatch(loadUserProjects());
+    dispatch(loadUserWorkedHours());
     if (admin) {
-      dispatch(loadAdminProjects());
+      dispatch(loadAdminWorkedHours());
     }
   }, []);
 

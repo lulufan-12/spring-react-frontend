@@ -93,5 +93,22 @@ export function loginReducer(state = INITIAL_STATE, action) {
     };
   }
 
+  if (action.type === 'LOAD_SESSION') {
+    const id = sessionStorage.getItem('id');
+    const admin = sessionStorage.getItem('admin');
+    const name = sessionStorage.getItem('name');
+    const email = sessionStorage.getItem('email');
+    return {
+      ...state,
+      loginForm: {
+        id,
+        admin,
+        name,
+        email,
+      },
+      loggedIn: true,
+    };
+  }
+
   return state;
 }

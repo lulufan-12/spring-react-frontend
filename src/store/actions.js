@@ -6,19 +6,37 @@ export function signIn() {
   };
 }
 
-export function loadUserProjects() {
+export function loadUserWorkedHours() {
   return {
-    type: 'ASYNC_LOAD_USER_PROJECTS',
+    type: 'ASYNC_LOAD_USER_WORKED_HOURS',
   };
 }
 
-export function loadAdminProjects() {
+export function loadAdminWorkedHours() {
   return {
-    type: 'ASYNC_LOAD_ADMIN_PROJECTS',
+    type: 'ASYNC_LOAD_ADMIN_WORKED_HOURS',
+  };
+}
+
+export function submitWorkedHours() {
+  return {
+    type: 'ASYNC_REGISTER_WORKED_HOURS',
+  };
+}
+
+export function loadProjects() {
+  return {
+    type: 'ASYNC_LOAD_PROJECTS',
   };
 }
 
 //REDUX DIRECT ACTIONS
+
+export function loadSession() {
+  return {
+    type: 'LOAD_SESSION',
+  };
+}
 
 export function signOut() {
   return {
@@ -28,7 +46,7 @@ export function signOut() {
 
 export function clearProjects() {
   return {
-    type: 'CLEAR_PROJECTS',
+    type: 'CLEAR_WORKED_HOURS',
   };
 }
 
@@ -74,11 +92,5 @@ export function projectChanged(project) {
     payload: {
       project: project,
     },
-  };
-}
-
-export function submitWorkedHours() {
-  return {
-    type: 'REGISTER_WORKED_HOURS',
   };
 }
