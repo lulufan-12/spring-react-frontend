@@ -18,10 +18,13 @@ const Button = styled.button`
   }
 `;
 
-const button = (props) => <Button>{props.children}</Button>;
+const button = (props) => (
+  <Button onClick={props.clicked}>{props.children}</Button>
+);
 
-button.PropTypes = {
+button.propTypes = {
   children: PropTypes.string.isRequired,
+  clicked: PropTypes.func.isRequired,
 };
 
 export default button;

@@ -12,7 +12,7 @@ const TableTh = styled.th`
 
 const tableTh = (props) => <TableTh>{props.children}</TableTh>;
 
-tableTh.PropTypes = {
+tableTh.propTypes = {
   children: PropTypes.string.isRequired,
 };
 

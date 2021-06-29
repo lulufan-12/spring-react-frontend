@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Anchor = styled.a`
+const linkStyle = {
+  textDecoration: 'none',
+};
+
+const StyledLink = styled(Link)`
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
@@ -16,16 +20,12 @@ const Anchor = styled.a`
   }
 `;
 
-const linkStyle = {
-  textDecoration: 'none',
-};
-
 const navitem = (props) => (
-  <Link to={props.to} style={linkStyle}>
-    <Anchor>{props.children}</Anchor>
-  </Link>
+  <StyledLink to={props.to} style={linkStyle}>
+    {props.children}
+  </StyledLink>
 );
-navitem.PropTypes = {
+navitem.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };

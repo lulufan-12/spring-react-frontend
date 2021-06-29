@@ -8,33 +8,62 @@ import Navbar from '../UI/Navbar/Navbar';
 import Wrapper from '../UI/Wrapper/Wrapper';
 import LoginPage from '../LoginPage/LoginPage';
 
-const projectPage = ({ projects, userName, loggedIn }) => {
+const ProjectPage = ({
+  dispatch,
+  projects,
+  userName,
+  admin,
+  loggedIn,
+  adminProjects,
+}) => {
+  const pjts = admin ? (
+    <>
+      <tr>
+        <Th>Nome</Th>
+        <Th>Usuário</Th>
+        <Th>Horas Trabalhadas</Th>
+      </tr>
+      {adminProjects.map((pjt) => (
+        <tr key={pjt.id}>
+          <Td>{pjt.name}</Td>
+          <Td>{pjt.user}</Td>
+          <Td>{pjt.workedHours}</Td>
+        </tr>
+      ))}
+    </>
+  ) : (
+    <>
+      <tr>
+        <Th>Nome</Th>
+        <Th>Horas Trabalhadas</Th>
+      </tr>
+      {projects.map((pjt) => (
+        <tr key={pjt.id}>
+          <Td>{pjt.name}</Td>
+          <Td>{pjt.workedHours}</Td>
+        </tr>
+      ))}
+    </>
+  );
+
   const page = !loggedIn ? (
     <LoginPage />
   ) : (
     <Wrapper>
       <Navbar />
-      <H1Title>Projetos - {userName}</H1Title>
+      <H1Title>Usuário {userName}</H1Title>
       <Table>
-        <tr>
-          <Th>Nome</Th>
-          <Th>Horas Trabalhadas</Th>
-        </tr>
-        {projects.map((pjt) => (
-          <tr key={pjt.id}>
-            <Td>{pjt.name}</Td>
-            <Td>{pjt.workedHours}</Td>
-          </tr>
-        ))}
+        <tbody>{pjts}</tbody>
       </Table>
     </Wrapper>
   );
-
   return page;
 };
 
 export default connect((state) => ({
-  projects: state.projects,
-  userName: state.user.name,
-  loggedIn: state.loggedIn,
-}))(projectPage);
+  projects: state.projectsReducer.projects,
+  adminProjects: state.projectsReducer.adminProjects,
+  userName: state.loginReducer.user.name,
+  loggedIn: state.loginReducer.loggedIn,
+  admin: state.loginReducer.user.admin,
+}))(ProjectPage);
