@@ -10,11 +10,11 @@ import LoginPage from '../LoginPage/LoginPage';
 
 const ProjectPage = ({
   dispatch,
-  projects,
+  workedHours,
   userName,
   admin,
   loggedIn,
-  adminProjects,
+  adminWorkedHours,
 }) => {
   const pjts = admin ? (
     <>
@@ -23,7 +23,7 @@ const ProjectPage = ({
         <Th>Usuário</Th>
         <Th>Horas Trabalhadas</Th>
       </tr>
-      {adminProjects.map((pjt) => (
+      {adminWorkedHours.map((pjt) => (
         <tr key={pjt.id}>
           <Td>{pjt.name}</Td>
           <Td>{pjt.user}</Td>
@@ -37,7 +37,7 @@ const ProjectPage = ({
         <Th>Nome</Th>
         <Th>Horas Trabalhadas</Th>
       </tr>
-      {projects.map((pjt) => (
+      {workedHours.map((pjt) => (
         <tr key={pjt.id}>
           <Td>{pjt.name}</Td>
           <Td>{pjt.workedHours}</Td>
@@ -61,8 +61,8 @@ const ProjectPage = ({
 };
 
 export default connect((state) => ({
-  projects: state.projectsReducer.projects,
-  adminProjects: state.projectsReducer.adminProjects,
+  workedHours: state.projectsReducer.workedHours,
+  adminWorkedHours: state.projectsReducer.adminWorkedHours,
   userName: state.loginReducer.user.name,
   loggedIn: state.loginReducer.loggedIn,
   admin: state.loginReducer.user.admin,

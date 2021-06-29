@@ -1,13 +1,13 @@
 const INITIAL_STATE = {
-  projects: [],
-  adminProjects: [],
+  workedHours: [],
+  adminWorkedHours: [],
 };
 
 export function projectsReducer(state = INITIAL_STATE, action) {
-  if (action.type === 'LOAD_USER_PROJECTS_SUCCESS') {
+  if (action.type === 'LOAD_USER_WORKED_HOURS_SUCCESS') {
     const data = action.payload.data;
 
-    const projects = data.map((pjt) => {
+    const workedHours = data.map((pjt) => {
       return {
         id: pjt[0].id,
         name: pjt[0].name,
@@ -17,18 +17,17 @@ export function projectsReducer(state = INITIAL_STATE, action) {
 
     return {
       ...state,
-      projects: projects,
+      workedHours,
     };
   }
 
-  /*
-  if (action.type === 'LOAD_ADMIN_PROJECTS_FAILED') {
+  if (action.type === 'LOAD_ADMIN_WORKED_HOURS_FAILED') {
+    alert('Falha ao conectar a API');
   }
-	*/
 
-  if (action.type === 'LOAD_ADMIN_PROJECTS_SUCCESS') {
+  if (action.type === 'LOAD_ADMIN_WORKED_HOURS_SUCCESS') {
     const data = action.payload.data;
-    const adminProjects = data.map((pjt) => {
+    const adminWorkedHours = data.map((pjt) => {
       return {
         id: pjt[0],
         name: pjt[1].name,
@@ -38,22 +37,20 @@ export function projectsReducer(state = INITIAL_STATE, action) {
     });
     return {
       ...state,
-      adminProjects: adminProjects,
+      adminWorkedHours,
     };
   }
 
-  /*
-  if (action.type === 'LOAD_USER_PROJECTS_FAILED') {
+  if (action.type === 'LOAD_USER_WORKED_HOURS_FAILED') {
+    alert('Falha ao conectar a API');
   }
-	*/
 
-  if (action.type === 'CLEAR_PROJECTS') {
+  if (action.type === 'CLEAR_WORKED_HOURS') {
     return {
       ...state,
-      projects: [],
-      adminProjects: [],
+      adminWorkedHours: [],
+      workedHours: [],
     };
   }
-
   return state;
 }
