@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { loadUserProjects, loadAdminProjects } from '../../../store/actions';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 
 const ProjectsTable = styled.table`
   width: 100%;
@@ -10,10 +13,23 @@ const ProjectsTable = styled.table`
   background-color: #deffde;
 `;
 
-const table = (props) => <ProjectsTable>{props.children}</ProjectsTable>;
+const Table = ({ dispatch, admin, children }) => {
+  useEffect(() => {
+    dispatch(loadUserProjects());
+    if (admin) {
+      dispatch(loadAdminProjects());
+    }
+  }, []);
 
-table.PropTypes = {
-  children: PropTypes.string.isRequired,
+  return <ProjectsTable>{children}</ProjectsTable>;
 };
 
-export default table;
+Table.propTypes = {
+  children: PropTypes.object.isRequired,
+  dispatch: PropTypes.func,
+  admin: PropTypes.bool,
+};
+
+export default connect((state) => ({
+  admin: state.loginReducer.user.admin,
+}))(Table);

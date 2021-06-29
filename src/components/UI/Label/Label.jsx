@@ -7,7 +7,7 @@ const Label = styled.label`
 `;
 
 const label = (props) => <Label htmlFor={props.for}>{props.children}</Label>;
-label.PropTypes = {
+label.propTypes = {
   for: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };

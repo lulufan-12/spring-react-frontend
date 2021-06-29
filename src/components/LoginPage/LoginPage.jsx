@@ -1,6 +1,6 @@
 import React from 'react';
 import Wrapper from '../UI/Wrapper/Wrapper';
-import Form from '../Form/Form';
+import Form from '../LoginForm/LoginForm';
 
 const loginPage = () => {
   return (

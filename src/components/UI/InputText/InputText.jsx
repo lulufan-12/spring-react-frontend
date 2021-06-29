@@ -13,11 +13,18 @@ const InputText = styled.input`
 `;
 
 const inputText = (props) => (
-  <InputText type={props.type} value={props.value}></InputText>
+  <InputText
+    type={props.type}
+    onChange={props.changed}
+    value={props.value}
+    name={props.name}
+  ></InputText>
 );
 
-inputText.PropTypes = {
+inputText.propTypes = {
   value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  changed: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 export default inputText;

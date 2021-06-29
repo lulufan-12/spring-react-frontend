@@ -22,7 +22,7 @@ const inputSubmit = (props) => (
   <InputSubmit type="submit" value={props.value}></InputSubmit>
 );
 
-inputSubmit.PropTypes = {
+inputSubmit.propTypes = {
   value: PropTypes.string.isRequired,
 };
 export default inputSubmit;

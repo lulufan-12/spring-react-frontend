@@ -10,8 +10,8 @@ const Wrapper = styled.section`
 
 const wrapper = (props) => <Wrapper>{props.children}</Wrapper>;
 
-wrapper.PropTypes = {
-  children: PropTypes.string.isRequired,
+wrapper.propTypes = {
+  children: PropTypes.any,
 };
 
 export default wrapper;
