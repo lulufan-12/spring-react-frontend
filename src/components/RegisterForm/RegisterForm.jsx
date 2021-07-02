@@ -12,14 +12,7 @@ import {
   workedHoursChanged,
 } from '../../store/actions';
 
-const RegisterForm = ({
-  projects,
-  project,
-  workedHours,
-  date,
-  dispatch,
-  admin,
-}) => {
+const RegisterForm = ({ projects, project, workedHours, date, dispatch }) => {
   useEffect(() => {
     dispatch(loadProjects());
   }, []);
@@ -99,7 +92,6 @@ RegisterForm.propTypes = {
   workedHours: PropTypes.number,
   date: PropTypes.any,
   dispatch: PropTypes.func,
-  admin: PropTypes.bool,
 };
 
 export default connect((state) => ({
@@ -107,5 +99,4 @@ export default connect((state) => ({
   date: state.registerReducer.date,
   workedHours: state.registerReducer.workedHours,
   project: state.registerReducer.project,
-  admin: state.loginReducer.user.admin,
 }))(RegisterForm);

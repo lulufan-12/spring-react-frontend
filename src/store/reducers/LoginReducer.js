@@ -42,7 +42,7 @@ export function loginReducer(state = INITIAL_STATE, action) {
     sessionStorage.setItem('id', data.id);
     sessionStorage.setItem('name', data.name);
     sessionStorage.setItem('email', data.email);
-    sessionStorage.setItem('admin', data.admin);
+    sessionStorage.setItem('adm', data.admin);
     return {
       ...state,
       user: {
@@ -76,7 +76,7 @@ export function loginReducer(state = INITIAL_STATE, action) {
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('email');
-    sessionStorage.removeItem('admin');
+    sessionStorage.removeItem('adm');
     return {
       ...state,
       user: {
@@ -95,12 +95,12 @@ export function loginReducer(state = INITIAL_STATE, action) {
 
   if (action.type === 'LOAD_SESSION') {
     const id = sessionStorage.getItem('id');
-    const admin = sessionStorage.getItem('admin');
+    const admin = sessionStorage.getItem('adm') === 'true';
     const name = sessionStorage.getItem('name');
     const email = sessionStorage.getItem('email');
     return {
       ...state,
-      loginForm: {
+      user: {
         id,
         admin,
         name,
