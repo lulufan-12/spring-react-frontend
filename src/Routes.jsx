@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
-import ProjectPage from './components/ProjectPage/ProjectPage';
-import HourRegisterPage from './components/HourRegisterPage/HourRegisterPage';
+import ProjectPage from './pages/ProjectPage/ProjectPage';
+import HourRegisterPage from './pages/HourRegisterPage/HourRegisterPage';
 
 const routes = () => (
   <div>
