@@ -1,13 +1,21 @@
 import React from 'react';
-import Wrapper from '../../common/components/Wrapper/Wrapper';
-import Form from './components/LoginForm/LoginForm';
+import { Container } from 'react-bootstrap';
+import PublicLayout from '../../common/layout/PublicLayout';
+import { StyledRow } from './styles';
+import TitleContainer from './components/TitleContainer';
+import LoginContainer from './components/LoginContainer';
 
-const loginPage = () => {
+const LoginPage = () => {
   return (
-    <Wrapper>
-      <Form />
-    </Wrapper>
+    <PublicLayout>
+      <Container>
+        <StyledRow className="g-5 align-items-center">
+          <TitleContainer />
+          <LoginContainer />
+        </StyledRow>
+      </Container>
+    </PublicLayout>
   );
 };
 
-export default loginPage;
+export default LoginPage;

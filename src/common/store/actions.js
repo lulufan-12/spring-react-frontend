@@ -1,11 +1,5 @@
 //SAGA MIDDLEWARE ACTIONS
 
-export function signIn() {
-  return {
-    type: 'ASYNC_SIGN_IN',
-  };
-}
-
 export function loadUserWorkedHours() {
   return {
     type: 'ASYNC_LOAD_USER_WORKED_HOURS',
@@ -31,18 +25,6 @@ export function loadProjects() {
 }
 
 //REDUX DIRECT ACTIONS
-
-export function loadSession() {
-  return {
-    type: 'LOAD_SESSION',
-  };
-}
-
-export function signOut() {
-  return {
-    type: 'SIGN_OUT',
-  };
-}
 
 export function clearProjects() {
   return {

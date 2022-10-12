@@ -5,7 +5,6 @@ import Table from '../../common/components/Table/Table';
 import Th from '../../common/components/TableTh/TableTh';
 import Td from '../../common/components/TableTd/TableTd';
 import Navbar from '../../common/components/Navbar/Navbar';
-import Wrapper from '../../common/components/Wrapper/Wrapper';
 import LoginPage from '../LoginPage/LoginPage';
 
 const ProjectPage = ({
@@ -49,13 +48,13 @@ const ProjectPage = ({
   const page = !loggedIn ? (
     <LoginPage />
   ) : (
-    <Wrapper>
+    <div>
       <Navbar />
       <H1Title>Usuário {userName}</H1Title>
       <Table>
         <tbody>{pjts}</tbody>
       </Table>
-    </Wrapper>
+    </div>
   );
   return page;
 };
