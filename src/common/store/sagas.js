@@ -1,15 +1,15 @@
 import {
   takeLatest,
   takeEvery,
-  delay,
   put,
   all,
   call,
   select,
 } from '@redux-saga/core/effects';
 import axios from 'axios';
+import { ASYNC_SIGN_IN } from './actions/authActions';
+import { logIn } from './sagas/authSaga';
 
-const LOGIN_URL = 'http://localhost:8080/login';
 const LOAD_ADMIN_WORKED_HOURS_URL = 'http://localhost:8080/admin/api/projects';
 const LOAD_USER_WORKED_HOURS_URL =
   'http://localhost:8080/api/projects/worked-hours';
@@ -18,7 +18,7 @@ const LOAD_PROJECTS_URL = 'http://localhost:8080/api/projects';
 
 export default function* rootSaga() {
   yield all([
-    takeLatest('ASYNC_SIGN_IN', logIn),
+    takeLatest(ASYNC_SIGN_IN, logIn),
     takeEvery('ASYNC_LOAD_USER_WORKED_HOURS', loadUserWorkedHours),
     takeEvery('ASYNC_LOAD_ADMIN_WORKED_HOURS', loadAdminWorkedHours),
     takeEvery('ASYNC_REGISTER_WORKED_HOURS', registerWorkedHours),
@@ -93,22 +93,5 @@ function* loadAdminWorkedHours() {
     yield put({ type: 'LOAD_ADMIN_WORKED_HOURS_SUCCESS', payload: res });
   } catch (err) {
     yield put({ type: 'LOAD_ADMIN_WORKED_HOURS_FAILED', payload: { err } });
-  }
-}
-
-function* logIn() {
-  try {
-    const state = yield select();
-    const username = state.loginReducer.loginForm.username;
-    const password = state.loginReducer.loginForm.password;
-    const data = {
-      username,
-      password,
-    };
-    yield delay(500);
-    const res = yield call(axios.post, LOGIN_URL, data);
-    yield put({ type: 'SIGN_IN_SUCCESS', payload: res });
-  } catch (err) {
-    yield put({ type: 'SIGN_IN_FAILED', payload: { err } });
   }
 }

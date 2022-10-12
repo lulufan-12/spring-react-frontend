@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Switch from './Switch';
 
-const router = () => (
+const Router = () => (
   <BrowserRouter>
     <Switch />
   </BrowserRouter>
 );
 
-export default router;
+export default Router;

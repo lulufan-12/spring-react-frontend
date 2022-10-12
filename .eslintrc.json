@@ -20,7 +20,7 @@
     },
     "rules": {
       "jest/expect-expect": 0,
-      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/rules-of-hooks": "warn",
       "react-hooks/exhaustive-deps": 0,
       "curly": 2,
       "dot-notation": 2,
@@ -49,9 +49,9 @@
         }
       ],
       "react/prop-types": 1,
-      "complexity": ["error", 8],
+      "complexity": ["warn", 8],
       "max-lines": [
-        "error",
+        "warn",
         {
           "max": 200,
           "skipComments": true,
@@ -59,7 +59,7 @@
         }
       ],
       "max-lines-per-function": [
-        "error",
+        "warn",
         {
           "max": 200,
           "skipComments": true,
@@ -71,7 +71,7 @@
       "one-var": [2, "never"],
       "prefer-arrow-callback": 2,
       "no-console": [
-        "error",
+        "warn",
         {
           "allow": ["tron"]
         }

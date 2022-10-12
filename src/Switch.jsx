@@ -1,11 +1,11 @@
 import React from 'react';
-import { Switch } from 'react-router';
+import { Switch as RouterSwitch } from 'react-router';
 import Routes from './Routes';
 
-const mySwitch = () => (
-  <Switch>
+const Switch = () => (
+  <RouterSwitch>
     <Routes />
-  </Switch>
+  </RouterSwitch>
 );
 
-export default mySwitch;
+export default Switch;
